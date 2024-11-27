@@ -1,5 +1,6 @@
 package org.openapitools.api;
 
+import org.openapitools.exceptions.HttpServletResponseException;
 import org.springframework.web.context.request.NativeWebRequest;
 
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ public static void setExampleResponse(NativeWebRequest req, String contentType, 
             res.addHeader("Content-Type", contentType);
             res.getWriter().print(example);
         } else {
-            throw new RuntimeException("HttpServletResponse is null");
+            throw new HttpServletResponseException("HttpServletResponse is null");
         }
     } catch (IOException e) {
         throw new RuntimeException(e);
