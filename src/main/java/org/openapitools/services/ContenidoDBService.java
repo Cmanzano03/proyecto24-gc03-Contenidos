@@ -26,12 +26,9 @@ public class ContenidoDBService {
 
     // Guardar un contenido comprobando que se cumpla la integridad referencial en el atributo perteneceA
     public void saveContenidoDB(ContenidoDB contenidoDB) {
-        if (contenidoDB.getPerteneceA() != null) {
-            if (!contenidoDBRepository.existsById(contenidoDB.getPerteneceA())) {
-                //Si no existe , lanzamos una excepción
-                throw new IllegalArgumentException("El contenido con ID " +
-                        contenidoDB.getPerteneceA() + " al cual se referencia en perteneceA no existe.");
-            }
+        if (contenidoDB.getPerteneceA() != null && !contenidoDBRepository.existsById(contenidoDB.getPerteneceA())) {
+            throw new IllegalArgumentException("El contenido con ID " +
+                    contenidoDB.getPerteneceA() + " al cual se referencia en perteneceA no existe.");
         }
         //Si es nulo o si existe, se guarda el contenido
         contenidoDBRepository.save(contenidoDB);
