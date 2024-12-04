@@ -41,20 +41,6 @@ public class ContenidoDB {
 	public ContenidoDB() {
 		// Empty constructor
 	}
-
-	public ContenidoDB(String tipo, String titulo, Integer production_year, String clasificacionEdad, String descripcion, int perteneceA, Integer numeroElementos, Integer duracion, String url, List<Integer> etiquetaIds) {
-		this.tipo = tipo;
-		this.titulo = titulo;
-		this.productionYear = production_year;
-		this.clasificacionEdad = clasificacionEdad;
-		this.descripcion = descripcion;
-		this.perteneceA = perteneceA;
-		this.numeroElementos = numeroElementos;
-		this.duracion = duracion;
-		this.url = url;
-		this.etiquetaIds = etiquetaIds;
-	}
-
 	public List<Integer> getEtiquetaIds() {
 		return etiquetaIds;
 	}
